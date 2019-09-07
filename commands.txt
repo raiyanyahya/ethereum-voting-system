@@ -1,0 +1,30 @@
+var accounts;
+web3.eth.getAccounts().then(function(result){
+     accounts = result;
+   })
+
+Election.deployed().then(function(i){app = i})
+
+truffle migrate --reset
+truffle test
+
+
+
+/*      put the below in  initWeb3: Took the below from youtube comments due to metamask privacy issues on firefox. You just need to run this once and then comment it out .
+      if (ethereum) {
+    web3 = new Web3(ethereum);
+    try {
+      ethereum.enable();
+      App.web3Provider = web3.currentProvider;
+    } catch (err) {
+      console.warn(err);
+    }
+  } else if (web3) {
+    // previous code here
+  }
+
+  Then you can use the getAccounts method in your render section...
+
+  web3.eth.getAccounts(function(err, accounts) {
+    App.account = accounts[0];
+  });*/
